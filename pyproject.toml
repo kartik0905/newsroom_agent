@@ -8,7 +8,9 @@ dependencies = [
     "crewai>=1.8.1",
     "crewai-tools>=1.8.1",
     "langchain-openai>=0.3.23",
+    "pandas>=2.3.3",
     "python-dotenv>=1.1.1",
     "streamlit>=1.53.1",
     "tavily-python>=0.7.19",
+    "textblob>=0.19.0",
 ]
