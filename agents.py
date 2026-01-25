@@ -3,9 +3,9 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 
 from crewai import Agent
-from crewai_tools import TavilySearchResultsTool
+from crewai_tools import TavilySearchTool
 
-search_tool = TavilySearchResultsTool()
+search_tool = TavilySearchTool()
 
 def create_agents():
     blue_pundit = Agent(
