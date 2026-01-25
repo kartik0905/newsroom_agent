@@ -1673,6 +1673,7 @@ dependencies = [
     { name = "crewai" },
     { name = "crewai-tools" },
     { name = "langchain-openai" },
+    { name = "python-dotenv" },
 ]
 
 [package.metadata]
@@ -1680,6 +1681,7 @@ requires-dist = [
     { name = "crewai", specifier = ">=1.8.1" },
     { name = "crewai-tools", specifier = ">=1.8.1" },
     { name = "langchain-openai", specifier = ">=0.3.23" },
+    { name = "python-dotenv", specifier = ">=1.1.1" },
 ]
 
 [[package]]

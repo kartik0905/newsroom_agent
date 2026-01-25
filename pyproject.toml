@@ -8,4 +8,5 @@ dependencies = [
     "crewai>=1.8.1",
     "crewai-tools>=1.8.1",
     "langchain-openai>=0.3.23",
+    "python-dotenv>=1.1.1",
 ]
