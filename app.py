@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-st.set_page_config(page_title="Anti-Echo Chamber", page_icon="📰")
+st.set_page_config(page_title="Anti-Echo Chamber", page_icon="📰", layout="wide")
 
 st.title("📰 The Anti-Echo Chamber")
 st.markdown("### Multi-Agent News Analysis")
 
-topic = st.text_input("Enter a controversial topic:", "Universal Basic Income")
+topic = st.text_input("Enter a controversial topic:", "AI Regulation")
 
 if st.button("Run Analysis"):
     with st.spinner("The Agents are debating... Check your terminal for live logs."):
@@ -30,9 +30,21 @@ if st.button("Run Analysis"):
 
             result = newsroom_crew.kickoff()
             
+            
             st.success("Analysis Complete!")
-            st.markdown("---")
-            st.markdown(result)
+
+            
+            st.divider()
+            
+            with st.container():
+                st.markdown(result)
+            
+            st.download_button(
+                label="Download Report",
+                data=str(result),
+                file_name=f"{topic}_analysis.md",
+                mime="text/markdown"
+            )
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
