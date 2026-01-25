@@ -1,20 +1,30 @@
 import os
 from dotenv import load_dotenv
-load_dotenv(override=True)
+load_dotenv()
 
 from crewai import Agent
 from crewai_tools import TavilySearchTool
 
 search_tool = TavilySearchTool()
 
-def create_agents():
+def create_agents(radical_level=50):
+    
+    if radical_level < 30:
+        tone = "moderate, nuanced, and conciliatory"
+        behavior = "You actively look for common ground. You avoid inflammatory language. You respect valid points from the other side."
+    elif radical_level < 70:
+        tone = "firm, opinionated, and principled"
+        behavior = "You stick to your ideological guns. You prioritize your values but remain professional."
+    else:
+        tone = "radical, aggressive, and uncompromising"
+        behavior = "You use emotional, charged language. You view the opposing side as dangerous to the country. You refuse to concede any points."
+
     blue_pundit = Agent(
         role='Progressive News Analyst',
-        goal='Analyze news stories to highlight social impact, equity, and corporate accountability.',
-        backstory="""You are a seasoned journalist for a major left-leaning publication. 
+        goal=f'Analyze news with a {tone} progressive lens.',
+        backstory=f"""You are a {tone} journalist for a major left-leaning publication. 
+        {behavior}
         You view the world through a lens of social justice and systemic reform. 
-        When you research a topic, you look for how it affects the vulnerable, 
-        environmental consequences, and the role of government regulation. 
         You are skeptical of unchecked capitalism.""",
         tools=[search_tool],
         verbose=True,
@@ -24,12 +34,11 @@ def create_agents():
 
     red_pundit = Agent(
         role='Conservative News Analyst',
-        goal='Analyze news stories to highlight economic freedom, tradition, and individual liberty.',
-        backstory="""You are a veteran columnist for a major right-leaning publication. 
-        You view the world through a lens of fiscal responsibility and personal freedom. 
-        When you research a topic, you look for how it impacts small businesses, 
-        national security, and traditional values. 
-        You are skeptical of government overreach and bureaucracy.""",
+        goal=f'Analyze news with a {tone} conservative lens.',
+        backstory=f"""You are a {tone} columnist for a major right-leaning publication. 
+        {behavior}
+        You view the world through a lens of fiscal responsibility and tradition. 
+        You are skeptical of government overreach.""",
         tools=[search_tool],
         verbose=True,
         allow_delegation=False,
