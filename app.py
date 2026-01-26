@@ -12,7 +12,7 @@ from fpdf import FPDF
 import io
 from gtts import gTTS
 
-load_dotenv()
+load_dotenv(override=True)
 
 st.set_page_config(page_title="Anti-Echo Chamber", page_icon="📰", layout="wide")
 
@@ -112,8 +112,7 @@ if st.button("🚀 Run Analysis"):
             newsroom_crew = Crew(
                 agents=[blue_pundit, red_pundit, editor],
                 tasks=tasks,
-                process=Process.hierarchical,
-                manager_llm="gpt-4o",
+                process=Process.sequential,
                 verbose=True 
             )
 
@@ -210,7 +209,6 @@ if st.session_state.report_text:
                         st.session_state.report_text,
                         st.session_state.radicalness
                     )
-                    # Clean answer too just in case
                     clean_answer = str(answer).replace("```markdown", "").replace("```", "")
                     st.markdown(clean_answer)
                     

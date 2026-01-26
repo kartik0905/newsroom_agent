@@ -9,7 +9,8 @@ def create_tasks(blue_agent, red_agent, editor_agent, topic):
         CRITICAL: At the end, list the URLs of the 3 articles you used.
         """,
         expected_output='A 200-word progressive analysis + list of 3 URLs.',
-        agent=blue_agent
+        agent=blue_agent,
+        async_execution=True
     )
 
     task_red_initial = Task(
@@ -20,7 +21,8 @@ def create_tasks(blue_agent, red_agent, editor_agent, topic):
         CRITICAL: At the end, list the URLs of the 3 articles you used.
         """,
         expected_output='A 200-word conservative analysis + list of 3 URLs.',
-        agent=red_agent
+        agent=red_agent,
+        async_execution=True
     )
 
     

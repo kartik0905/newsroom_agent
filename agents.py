@@ -54,7 +54,7 @@ def create_agents(radical_level=50):
         You identify the undisputed facts and the fundamental disagreements.
         You hate fluff and demand clarity.""",
         verbose=True,
-        allow_delegation=True,
+        allow_delegation=False, 
         llm="gpt-4o"
     )
 
