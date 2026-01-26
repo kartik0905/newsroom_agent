@@ -1,164 +1,211 @@
+# 📰 The Anti-Echo Chamber (Newsroom Agent)
 
-# 📰 Newsroom Agent: The Anti-Echo Chamber
+![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
+![CrewAI](https://img.shields.io/badge/CrewAI-Multi--Agent-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
+![OpenAI](https://img.shields.io/badge/LLM-GPT--4o-black)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-![Python](https://img.shields.io/badge/Python-3.12+-blue)
-![CrewAI](https://img.shields.io/badge/CrewAI-Multi--Agent-orange)
-![OpenAI](https://img.shields.io/badge/LLM-GPT--4o-green)
-![Streamlit](https://img.shields.io/badge/UI-Streamlit-ff4b4b)
-![Tavily](https://img.shields.io/badge/Search-Tavily-purple)
-![Altair](https://img.shields.io/badge/Charts-Altair-lightgrey)
-![License](https://img.shields.io/badge/License-MIT-black)
+**The Anti-Echo Chamber** is an advanced **AI-powered Multi-Agent
+Newsroom** designed to combat media bias and ideological echo chambers.\
+It simulates a virtual newsroom where autonomous AI agents investigate
+the *same topic* from **opposing political perspectives**, challenge
+each other's conclusions, and ultimately synthesize a **neutral,
+fact-based report**.
 
-**Newsroom Agent: The Anti-Echo Chamber** is an AI-powered **Multi-Agent System** designed to combat media bias and ideological echo chambers.  
-It simulates a virtual newsroom where autonomous AI agents — each with distinct, programmed political personalities — research the *same* news topic from opposing ideological perspectives.  
-A neutral **Editor** agent then synthesizes these perspectives into a single, structured, objective dossier.
+This project is built as a **portfolio-grade system** to demonstrate
+advanced skills in: - Multi-agent orchestration - Cognitive
+architectures - Real-time research pipelines - Interactive AI systems
 
----
+------------------------------------------------------------------------
 
-## 🚀 Project Overview
+## 🚀 Key Features
 
-In an era of polarized media, Newsroom Agent provides a structured way to:
+### 🧠 Autonomous Multi-Agent Workflow (CrewAI)
 
-- Compare how the same story is framed across ideological lines  
-- Separate **verifiable facts** from **ideological narratives**  
-- Quantify polarization using sentiment analysis  
-- Present findings in a clean, interactive dashboard  
+-   **🔵 Blue Pundit**\
+    Researches topics using a *Progressive / Social-Justice* lens.
+-   **🔴 Red Pundit**\
+    Researches topics using a *Conservative / Economic-Freedom* lens.
+-   **📰 The Editor**\
+    A neutral agent that evaluates both sides and compiles the final,
+    balanced dossier.
 
-At its core, the system operates as a **hierarchical multi-agent workflow**, orchestrated using **CrewAI**.
+------------------------------------------------------------------------
 
----
+### ⚔️ Rebuttal Logic (Cognitive Architecture)
 
-## 🧠 System Architecture
+Agents don't just work in parallel.
 
-### Autonomous Multi-Agent Crew
+They: 1. Share context 2. Read each other's drafts 3. Generate
+**explicit rebuttals and counter-arguments** 4. Refine their positions
+before synthesis
 
-The application orchestrates three specialized agents:
+This simulates **real editorial debate**, not isolated LLM calls.
 
-- **🔵 The Blue Pundit**  
-  Researches progressive and left-leaning media sources, focusing on social justice, equity, and systemic impact.
+------------------------------------------------------------------------
 
-- **🔴 The Red Pundit**  
-  Researches conservative and right-leaning media sources, emphasizing economic freedom, individual responsibility, and traditional values.
+### 🎚️ Dynamic Personality Engine
 
-- **📝 The Editor**  
-  Acts as a neutral authority that:
-  - Extracts consensus facts  
-  - Identifies conflicting narratives  
-  - Produces a structured *“Facts vs. Narratives”* report
+A **Polarization Slider (0--100%)** in the UI dynamically alters system
+prompts at runtime:
 
-All agents operate autonomously and concurrently.
+-   `0%` → Polite academics
+-   `50%` → Opinionated pundits
+-   `100%` → Radical partisans
 
----
+This allows real-time experimentation with **prompt engineering and
+ideological intensity**.
 
-## ✨ Key Features
+------------------------------------------------------------------------
 
-### 🧩 Multi-Agent Orchestration
-- Built using **CrewAI** with a **hierarchical process**
-- Clear separation of roles, responsibilities, and outputs
+### 🎧 Multi-Modal Output
 
-### 🎛️ Dynamic Personality Engine
-- Interactive **Polarization Slider**
-- Adjusts agent radicalness in real time via **dynamic prompt injection**
-- Ranges from *“Polite Academic Debate”* to *“Cable News Shout-fest”*
+-   **Audio Briefings** 🎙️\
+    Generates podcast-style summaries using **gTTS**
+-   **PDF Reports** 📄\
+    Downloadable dossiers via **FPDF**
+-   **Live Web Research** 🌐\
+    Uses **Tavily API** to fetch real-time sources (minimizing
+    hallucinations)
 
-### 🌐 Real-Time Internet Search
-- Integrated **Tavily Search API**
-- Fetches live, up-to-date articles
-- Minimizes hallucinations and stale knowledge
+------------------------------------------------------------------------
 
-### 📊 Sentiment Intelligence
-- Uses **TextBlob** for NLP sentiment analysis
-- Calculates a **Polarity Score** (-1.0 to +1.0) for each ideological report
-- Visualizes the **Ideological Gap** using **Altair charts**
+### 💬 Interactive Interrogation Chat
 
-### 🖥️ Interactive Dashboard
-- Built with **Streamlit**
-- Tabbed views for each agent
-- Clickable source citations
-- Real-time logs of agent reasoning and execution
+Users can directly question individual agents using **Session State**:
 
-### 📄 PDF Export
-- Final synthesized report downloadable as a **formatted PDF**
-- Enables offline reading and sharing
+> *"Hey Red Agent, why did you ignore the climate data?"*
 
----
+This enables **agent-specific accountability and explainability**.
+
+------------------------------------------------------------------------
+
+### 📊 Sentiment & Bias Visualization
+
+-   **TextBlob** analyzes sentiment polarity
+-   **Altair** visualizes the ideological gap between agents
+-   Makes bias **quantifiable and observable**
+
+------------------------------------------------------------------------
+
+### ⚡ Performance-Oriented Design
+
+-   Asynchronous tasks for **parallel web research**
+-   Reduced latency despite multiple agents and live data fetching
+
+------------------------------------------------------------------------
+
+## 🧩 How It Works
+
+### 1️⃣ Research Phase
+
+Both the **Blue Pundit** and **Red Pundit** independently: - Query
+Tavily for live sources - Analyze data through their ideological
+lenses - Produce structured draft reports
+
+------------------------------------------------------------------------
+
+### 2️⃣ Rebuttal Phase
+
+Agents: - Read each other's drafts - Identify weak assumptions, bias, or
+missing data - Write targeted rebuttals and counterpoints
+
+------------------------------------------------------------------------
+
+### 3️⃣ Synthesis Phase
+
+The **Editor Agent**: - Evaluates both perspectives and rebuttals -
+Cross-checks factual overlap - Produces a **neutral, evidence-backed
+final report**
+
+------------------------------------------------------------------------
 
 ## 🛠️ Tech Stack
 
-**Core**
-- Python 3.12+
+  Category              Technology
+  --------------------- -----------------
+  Language              Python 3.12+
+  Agent Orchestration   CrewAI
+  LLM                   GPT-4o (OpenAI)
+  Web Framework         Streamlit
+  Search                Tavily API
+  Audio                 gTTS
+  PDF                   FPDF
+  Visualization         Altair
+  NLP                   TextBlob
+  Package Manager       uv
 
-**Agent Orchestration**
-- CrewAI (Hierarchical Process)
+------------------------------------------------------------------------
 
-**LLM**
-- GPT-4o (OpenAI)
-
-**Web UI**
-- Streamlit
-
-**Tools & Libraries**
-- Tavily Search Tool (Live Web Search)
-- TextBlob (Sentiment Analysis)
-- Altair (Data Visualization)
-- FPDF (PDF Generation)
-
-**Package Management**
-- uv (Astral)
-
----
-
-## 📦 Installation & Usage
+## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the Repository
-```bash
+
+``` bash
 git clone https://github.com/kartik0905/newsroom_agent.git
-cd newsroom-agent
+cd newsroom_agent
 ```
+
+------------------------------------------------------------------------
 
 ### 2️⃣ Set Up Environment Variables
-Create a `.env` file in the project root:
 
-```env
-OPENAI_API_KEY=your_openai_api_key_here
-TAVILY_API_KEY=your_tavily_api_key_here
+Create a `.env` file in the root directory:
+
+``` env
+OPENAI_API_KEY=your_openai_api_key
+TAVILY_API_KEY=your_tavily_api_key
 ```
 
-### 3️⃣ Install Dependencies (via `uv`)
-```bash
+------------------------------------------------------------------------
+
+### 3️⃣ Install Dependencies
+
+Using **uv** (recommended):
+
+``` bash
 uv sync
 ```
 
+Or using **pip**:
+
+``` bash
+pip install -r requirements.txt
+```
+
+------------------------------------------------------------------------
+
 ### 4️⃣ Run the Application
-```bash
+
+``` bash
 uv run streamlit run app.py
 ```
 
----
+The app will be available at:
 
-## 📂 Project Structure (Simplified)
+    http://localhost:8501
 
-```text
-.
-├── agents/
-├── tools/
-├── app.py
-├── crew.py
-├── utils/
-├── requirements.lock
-└── README.md
-```
+------------------------------------------------------------------------
 
----
+## 🎯 Why This Project Matters
 
-## 🔮 Future Roadmap
+This system goes beyond simple AI demos: - Demonstrates **real-world
+multi-agent coordination** - Showcases **debate, critique, and
+synthesis** - Highlights skills in **AI safety, bias mitigation, and
+explainability** - Designed to impress **hiring managers and technical
+reviewers**
 
-- 🎙️ Audio Briefings  
-- ⚔️ Rebuttal Mode  
-- 🧠 Source Credibility Scoring  
-- 👥 Additional Ideological Agents  
+------------------------------------------------------------------------
 
----
+## 👤 Author
+
+**Kartik (kartik0905)**\
+AI & Full-Stack Developer
+
+🔗 GitHub: https://github.com/kartik0905
+
+------------------------------------------------------------------------
 
 ## 📜 License
 
