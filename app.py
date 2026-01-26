@@ -70,6 +70,23 @@ if st.button("🚀 Run Analysis"):
             )
 
             result = newsroom_crew.kickoff()
+
+            full_text = str(result)
+            blue_score = 0
+            red_score = 0
+            
+
+            try:
+                if "Section 2: The Left View" in full_text and "Section 3: The Right View" in full_text:
+                    blue_part = full_text.split("Section 2: The Left View")[1].split("Section 3: The Right View")[0]
+                    blue_score = TextBlob(blue_part).sentiment.polarity
+                
+                if "Section 3: The Right View" in full_text and "Section 4: The Divergence" in full_text:
+                    red_part = full_text.split("Section 3: The Right View")[1].split("Section 4: The Divergence")[0]
+                    red_score = TextBlob(red_part).sentiment.polarity
+            except Exception as e:
+                st.warning(f"Note: Precise sentiment parsing failed ({e}). Showing general tone.")
+                pass
             
             full_text = str(result)
             blue_score = 0
