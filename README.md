@@ -17,7 +17,7 @@ This project is built as a **portfolio-grade system** to demonstrate
 advanced skills in: - Multi-agent orchestration - Cognitive
 architectures - Real-time research pipelines - Interactive AI systems
 
-![Project Dashboard Screenshot](<img width="1440" height="860" alt="Image" src="https://github.com/user-attachments/assets/79d2bb72-ff43-4f23-b871-9e73cab18923" />)
+![Project Dashboard Screenshot](/Users/kartikgarg/Desktop/Screenshot 2026-01-26 at 2.10.42 PM.png)
 
 ------------------------------------------------------------------------
 
