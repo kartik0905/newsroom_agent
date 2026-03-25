@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from crewai import Crew, Process
+from crewai import Crew, Process, LLM
 from agents import create_agents
 from tasks import create_tasks
 
@@ -15,7 +15,7 @@ newsroom_crew = Crew(
     agents=[blue_pundit, red_pundit, editor],
     tasks=tasks,
     process=Process.hierarchical,
-    manager_llm="gpt-4o",
+    manager_llm=LLM(model="openai/gemma2-9b-it", base_url="https://api.groq.com/openai/v1", api_key=os.environ.get("GROQ_API_KEY")),
     verbose=True
 )
 
