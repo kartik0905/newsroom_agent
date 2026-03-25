@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from crewai import Agent
+from crewai import Agent, LLM
 from crewai_tools import TavilySearchTool
 
 search_tool = TavilySearchTool()
@@ -29,7 +29,7 @@ def create_agents(radical_level=50):
         tools=[search_tool],
         verbose=True,
         allow_delegation=False,
-        llm="gpt-4o"
+        llm=LLM(model="openai/gemma2-9b-it", base_url="https://api.groq.com/openai/v1", api_key=os.environ.get("GROQ_API_KEY"))
     )
 
     red_pundit = Agent(
@@ -42,7 +42,7 @@ def create_agents(radical_level=50):
         tools=[search_tool],
         verbose=True,
         allow_delegation=False,
-        llm="gpt-4o"
+        llm=LLM(model="openai/gemma2-9b-it", base_url="https://api.groq.com/openai/v1", api_key=os.environ.get("GROQ_API_KEY"))
     )
 
     editor = Agent(
@@ -55,7 +55,7 @@ def create_agents(radical_level=50):
         You hate fluff and demand clarity.""",
         verbose=True,
         allow_delegation=False, 
-        llm="gpt-4o"
+        llm=LLM(model="openai/gemma2-9b-it", base_url="https://api.groq.com/openai/v1", api_key=os.environ.get("GROQ_API_KEY"))
     )
 
     return blue_pundit, red_pundit, editor
