@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.12%2B-blue)
 ![CrewAI](https://img.shields.io/badge/CrewAI-Multi--Agent-green)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Web%20App-red)
-![OpenAI](https://img.shields.io/badge/LLM-GPT--4o-black)
+![Groq](https://img.shields.io/badge/LLM-Llama--3.3-black)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 **The Anti-Echo Chamber** is an advanced **AI-powered Multi-Agent
@@ -129,7 +129,7 @@ final report**
   --------------------- -----------------
   Language              Python 3.12+
   Agent Orchestration   CrewAI
-  LLM                   GPT-4o (OpenAI)
+  LLM                   Llama 3.3 (Groq)
   Web Framework         Streamlit
   Search                Tavily API
   Audio                 gTTS
@@ -156,7 +156,7 @@ cd newsroom_agent
 Create a `.env` file in the root directory:
 
 ``` env
-OPENAI_API_KEY=your_openai_api_key
+GROQ_API_KEY=your_groq_api_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
 
